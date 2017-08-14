@@ -8,6 +8,6 @@ for(var i=0; i<=15; i++){
   var chunkStr = (chunkInt < 10 ? '0'+chunkInt.toString() : chunkInt.toString());
   var aoi = fc.filter(ee.Filter.eq('id', chunkInt)).geometry();
   var description = baseName+'_chunk_'+chunkStr;
-  var box = aoi.bounds(); // get the bounds from the drawn polygon
+  var box = aoi.bounds();
   Export.image.toDrive({'image': srtmDEM, 'region': box, 'description': description, 'folder': description, 'fileNamePrefix': description, 'crs': 'EPSG:5070', 'crsTransform': affine, 'maxPixels': 1e13});
 }
